@@ -106,6 +106,14 @@
     .support a { color: var(--red); }
     .toast { position: fixed; right: 1.25rem; bottom: 1.25rem; max-width: 22rem; padding: 1rem 1.1rem; border: 1px solid rgba(36,87,230,.16); border-radius: 1rem; color: var(--ink); background: white; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transform: translateY(1rem); transition: .3s ease; }
     .toast.show { opacity: 1; transform: none; }
+    .welcome-screen { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 2rem; background: #fff; opacity: 0; pointer-events: none; transform: scale(1.02); transition: opacity .45s ease, transform .45s ease; }
+    .welcome-screen.show { opacity: 1; pointer-events: auto; transform: none; }
+    .welcome-inner { width: min(100%, 58rem); text-align: center; }
+    .welcome-logo { width: min(72vw, 25rem); max-height: 25rem; object-fit: contain; margin: 0 auto 1rem; mix-blend-mode: multiply; filter: drop-shadow(0 18px 24px rgba(16,24,47,.12)); animation: welcome-bounce 1.4s ease-in-out infinite alternate; }
+    .welcome-kicker { margin: 0 0 .8rem; color: var(--blue); font-size: .82rem; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .welcome-title { margin: 0 auto 1.8rem; max-width: 14ch; color: var(--ink); font-size: clamp(2.8rem, 8vw, 6.8rem); line-height: .9; letter-spacing: -.08em; }
+    .welcome-back { width: auto; padding-inline: 2rem; }
+    @keyframes welcome-bounce { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-10px) rotate(1deg); } }
     @media (max-width: 880px) { .page { grid-template-columns: 1fr; } .brand-side { min-height: 43rem; padding-top: 3rem; padding-bottom: 3rem; } .mini-logo { margin-bottom: 3.5rem; } .form-side { padding: 1rem; } }
     @media (max-width: 480px) { .brand-side { min-height: 35rem; } .orbit { transform: scale(.82); transform-origin: left top; margin-bottom: -2rem; } .form-card { border-radius: 1.3rem; } }
   </style>
@@ -143,12 +151,22 @@
       </div>
     </section>
   </main>
+  <section class="welcome-screen" id="welcome-screen" aria-hidden="true">
+    <div class="welcome-inner">
+      <p class="welcome-kicker">sua coleção começou</p>
+      <img class="welcome-logo" src="clickcards-logo.png" alt="Logo Click Cards" />
+      <h2 class="welcome-title">Marck é um teta grande</h2>
+      <button class="button welcome-back" type="button" id="back-to-login">Voltar para o login</button>
+    </div>
+  </section>
   <div class="toast" id="toast" role="status"></div>
   <script>
     const password = document.querySelector('#password');
     const toggle = document.querySelector('#toggle-password');
     const form = document.querySelector('#login-form');
     const toast = document.querySelector('#toast');
+    const welcome = document.querySelector('#welcome-screen');
+    const backToLogin = document.querySelector('#back-to-login');
     toggle.addEventListener('click', () => {
       const visible = password.type === 'text';
       password.type = visible ? 'password' : 'text';
@@ -156,9 +174,12 @@
     });
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      toast.textContent = 'Esta é uma prévia visual. O login real será conectado com segurança na próxima etapa.';
-      toast.classList.add('show');
-      window.setTimeout(() => toast.classList.remove('show'), 4200);
+      welcome.classList.add('show');
+      welcome.setAttribute('aria-hidden', 'false');
+    });
+    backToLogin.addEventListener('click', () => {
+      welcome.classList.remove('show');
+      welcome.setAttribute('aria-hidden', 'true');
     });
   </script>
 </body>
