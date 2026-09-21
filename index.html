@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="ClickCards — sua coleção, suas regras." />
+  <link rel="icon" type="image/png" href="clickcards-logo-transparent.png" />
   <title>ClickCards — Entre na sua coleção</title>
   <style>
     :root {
@@ -167,7 +168,7 @@
     <div class="welcome-inner">
       <p class="welcome-kicker">sua coleção começou</p>
       <img class="welcome-logo" src="clickcards-logo-transparent.png" alt="Logo Click Cards" />
-      <h2 class="welcome-title">Marck é um teta grande</h2>
+      <h2 class="welcome-title">Marck tem uma teta grande</h2>
       <button class="button welcome-back" type="button" id="back-to-login">Voltar para o login</button>
     </div>
   </section>
@@ -207,6 +208,23 @@
     });
     form.addEventListener('submit', (event) => {
       event.preventDefault();
+      const account = JSON.parse(localStorage.getItem('clickcardsAccount') || 'null');
+      const username = document.querySelector('#username').value.trim();
+      const passwordValue = document.querySelector('#password').value;
+      if (!account) {
+        toast.textContent = 'Você precisa criar sua conta antes de entrar.';
+        toast.classList.add('show');
+        window.setTimeout(() => toast.classList.remove('show'), 3600);
+        signup.classList.add('show');
+        signup.setAttribute('aria-hidden', 'false');
+        return;
+      }
+      if (username !== account.username || passwordValue !== account.password) {
+        toast.textContent = 'Usuário ou senha incorretos.';
+        toast.classList.add('show');
+        window.setTimeout(() => toast.classList.remove('show'), 3200);
+        return;
+      }
       welcome.classList.add('show');
       welcome.setAttribute('aria-hidden', 'false');
     });
@@ -232,6 +250,13 @@
         window.setTimeout(() => toast.classList.remove('show'), 3200);
         return;
       }
+      const account = {
+        username: document.querySelector('#signup-username').value.trim(),
+        email: document.querySelector('#signup-email').value.trim(),
+        birthdate: document.querySelector('#signup-birthdate').value,
+        password,
+      };
+      localStorage.setItem('clickcardsAccount', JSON.stringify(account));
       signup.classList.remove('show');
       signup.setAttribute('aria-hidden', 'true');
       welcome.classList.add('show');
