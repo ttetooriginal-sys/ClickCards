@@ -189,6 +189,12 @@
     .cc-card-face{box-sizing:border-box;min-height:min(25rem,50vh);height:min(25rem,50vh);max-height:50vh}
     @media(max-width:620px){.cc-pack-modal{padding:.5rem}.cc-pack-dialog{max-height:calc(100vh - 1rem);padding:.8rem}.cc-pack-stage{min-height:42vh;height:42vh;max-height:42vh}.cc-pack-open-art{max-height:38vh}.cc-card-reveal{min-height:42vh;height:42vh;max-height:42vh}.cc-card-face{min-height:38vh;height:38vh;max-height:38vh}}
 
+
+    .cc-item.pack-item{overflow:hidden}
+    .cc-item-art.pack-art{box-sizing:border-box;overflow:hidden;position:relative;height:8rem;min-height:8rem;max-height:8rem;padding:.25rem}
+    .cc-item-art.pack-art img{display:block;width:100%!important;height:100%!important;max-width:100%;max-height:100%;object-fit:contain!important;object-position:center}
+    @media(max-width:620px){.cc-item-art.pack-art{height:7rem;min-height:7rem;max-height:7rem}}
+
   </style>
 </head>
 <body>
