@@ -2,45 +2,212 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#172b63" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ClickCards — sua coleção, suas regras." />
   <link rel="icon" type="image/png" href="clickcards-logo-transparent.png" />
-  <title>ClickCards — sua coleção</title>
+  <title>ClickCards — Entre na sua coleção</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
-    :root{font-family:Nunito,system-ui,sans-serif;color:#172b63;background:#f7faff;--navy:#172b63;--pink:#ee3b9c;--cyan:#10cfd0;--yellow:#ffd348;}
-    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 12%,#10cfd025,transparent 28rem),radial-gradient(circle at 90% 90%,#ee3b9c1f,transparent 30rem),#f7faff}button,input,textarea{font:inherit}button{cursor:pointer;border:0}.shell{width:min(1120px,calc(100% - 32px));margin:auto}.hidden{display:none!important}.auth{min-height:100vh;display:grid;place-items:center;padding:28px}.auth-card{width:min(100%,470px);background:#fffffff2;border:1px solid #fff;border-radius:32px;padding:34px;box-shadow:0 28px 90px #172b6324}.logo{display:flex;align-items:center;gap:10px;font-weight:900}.logo img{width:64px;height:64px;object-fit:contain}.logo span{font-size:29px;line-height:.75;letter-spacing:-.09em}.logo span b{display:block;color:#ee3b9c}.eyebrow{margin:30px 0 8px;text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:900;color:var(--pink)}h1,h2,h3,p{margin-top:0}h1{font-size:42px;line-height:.94;letter-spacing:-.07em;margin-bottom:14px}h2{font-size:28px;letter-spacing:-.06em;margin-bottom:10px}.muted{color:#68748e;line-height:1.6}.field{display:grid;gap:7px;margin-top:16px;font-size:14px;font-weight:800}.field input,.field textarea{width:100%;border:1px solid #dce3ee;background:#f8fafc;border-radius:15px;padding:14px;outline:0}.field input:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 4px #10cfd025}.primary{width:100%;margin-top:22px;padding:15px 18px;border-radius:15px;background:var(--navy);color:#fff;font-weight:900;box-shadow:0 12px 24px #172b6330}.primary:hover{background:#243d82}.secondary{width:100%;margin-top:12px;padding:14px;border-radius:15px;background:#fff;color:var(--navy);font-weight:900;border:1px solid #dce3ee}.tabs{display:flex;gap:8px;margin:24px 0 5px}.tab{flex:1;padding:11px;border-radius:12px;background:#edf2fa;color:#6b7890;font-weight:900}.tab.active{background:#ffd348;color:var(--navy)}.notice{margin-top:16px;padding:12px 14px;border-radius:13px;background:#fff4c7;color:#725b00;font-size:13px;font-weight:700}.support{margin:22px 0 0;text-align:center;font-size:13px;color:#8791a5}.support a{color:var(--navy);font-weight:900}.app{min-height:100vh}.topbar{background:#ffffffd9;border-bottom:1px solid #e7ebf2;backdrop-filter:blur(12px)}.topbar .shell{display:flex;align-items:center;justify-content:space-between;padding:14px 0}.topbar .logo img{width:42px;height:42px}.topbar .logo span{font-size:22px}.logout{padding:10px 14px;border:1px solid #dce3ee;border-radius:12px;background:#fff;color:var(--navy);font-weight:900}.main{padding:48px 0}.grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}.panel{border-radius:30px;padding:30px;background:#fff;box-shadow:0 18px 50px #172b6314}.hero{background:var(--navy);color:#fff}.hero .muted{color:#c8d4f3}.hero h1{font-size:48px}.hero .primary{background:var(--cyan);color:var(--navy)}.count{float:right;background:#f2f5fa;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;clear:both;padding-top:22px}.card{overflow:hidden;border-radius:22px;border:1px solid #edf0f5;background:#fff;box-shadow:0 10px 26px #172b630e}.stripe{height:8px;background:var(--cyan)}.card-body{padding:18px}.art{height:110px;border-radius:16px;margin-bottom:15px;background:linear-gradient(135deg,#10cfd033,#fff4b9,#ee3b9c33);display:grid;place-items:center;font-size:46px}.empty{padding:70px 20px;text-align:center;border:2px dashed #dce3ee;border-radius:22px;color:#7b879d}.empty strong{display:block;font-size:22px;color:var(--navy);margin-bottom:8px}.toast{position:fixed;right:20px;bottom:20px;max-width:340px;padding:14px 16px;border-radius:14px;background:var(--navy);color:white;font-weight:800;box-shadow:0 15px 30px #172b6340;z-index:5}.welcome{position:fixed;inset:0;z-index:4;display:grid;place-items:center;background:#ffffffee;backdrop-filter:blur(12px);padding:20px}.welcome-box{text-align:center;width:min(100%,520px)}.welcome-box img{width:min(70vw,300px);height:auto;object-fit:contain}.welcome-box h2{font-size:40px;margin:0}.welcome-box p{color:#6b7890}.close{margin-top:12px;padding:12px 20px;border-radius:12px;background:var(--yellow);color:var(--navy);font-weight:900}@media(max-width:800px){.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.main{padding:28px 0}.hero h1{font-size:40px}}
+    :root {
+      --ink: #10182f;
+      --muted: #65708d;
+      --paper: #fffdf8;
+      --blue: #2457e6;
+      --blue-dark: #173db3;
+      --red: #ed4c58;
+      --yellow: #ffd45a;
+      --line: rgba(16, 24, 47, .11);
+      --shadow: 0 24px 60px rgba(25, 49, 113, .16);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: #f4f7ff;
+      overflow-x: hidden;
+    }
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 32rem;
+      height: 32rem;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: .45;
+      pointer-events: none;
+      z-index: -2;
+    }
+    body::before { background: #c8d6ff; top: -15rem; left: -10rem; }
+    body::after { background: #ffe2a3; bottom: -17rem; right: -8rem; }
+    .page { min-height: 100vh; display: grid; grid-template-columns: 1.08fr .92fr; }
+    .brand-side {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem clamp(2rem, 7vw, 8rem);
+      overflow: hidden;
+      background: linear-gradient(145deg, #1a3db0 0%, #2457e6 55%, #4778f5 100%);
+      color: white;
+      isolation: isolate;
+    }
+    .brand-side::before {
+      content: "";
+      position: absolute;
+      inset: 12% -10% -15% 10%;
+      background: radial-gradient(circle at 30% 35%, rgba(255,255,255,.24), transparent 28%), radial-gradient(circle at 80% 75%, rgba(255,212,90,.25), transparent 22%);
+      z-index: -1;
+    }
+    .brand-content { width: min(100%, 38rem); position: relative; z-index: 2; }
+    .mini-logo, .form-logo { display: inline-flex; align-items: center; gap: .65rem; font-weight: 900; letter-spacing: -.04em; }
+    .mini-logo { font-size: 1.25rem; margin-bottom: 4.5rem; }
+    .brand-art { display: block; width: min(100%, 27rem); margin: -1.5rem 0 -1rem -1.2rem; filter: saturate(1.08) drop-shadow(0 18px 24px rgba(10, 18, 74, .28)); animation: logo-in .9s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes logo-in { from { opacity: 0; transform: translateY(16px) scale(.95) rotate(-2deg); } to { opacity: 1; transform: none; } }
+    .logo-mark { width: 2.5rem; height: 2.5rem; position: relative; display: inline-block; transform: rotate(-8deg); }
+    .logo-mark::before, .logo-mark::after { content: ""; position: absolute; border-radius: 10px; }
+    .logo-mark::before { inset: 0 0 0 36%; background: var(--yellow); border: 3px solid var(--ink); box-shadow: -8px 7px 0 var(--red); }
+    .logo-mark::after { width: .5rem; height: .5rem; left: 50%; top: 28%; background: var(--ink); border-radius: 50%; box-shadow: 0 12px 0 var(--ink); }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .75rem; font-weight: 800; opacity: .78; }
+    h1 { margin: .9rem 0 1.25rem; max-width: 10ch; font-size: clamp(3.2rem, 6vw, 6.5rem); line-height: .9; letter-spacing: -.085em; }
+    .brand-copy { max-width: 31rem; font-size: 1.08rem; line-height: 1.65; color: rgba(255,255,255,.82); }
+    .orbit { position: relative; width: min(100%, 31rem); height: 13rem; margin-top: 3.5rem; }
+    .card { position: absolute; width: 9.2rem; height: 12rem; border: 4px solid var(--ink); border-radius: 1.15rem; padding: .8rem; box-shadow: 9px 10px 0 rgba(9, 24, 82, .24); transform: rotate(-13deg); animation: float 5s ease-in-out infinite; }
+    .card::after { content: ""; position: absolute; inset: .65rem; border: 2px solid rgba(16,24,47,.18); border-radius: .75rem; }
+    .card.one { background: var(--yellow); left: 3%; top: 1rem; }
+    .card.two { background: var(--red); left: 29%; top: 0; transform: rotate(7deg); animation-delay: -1.2s; }
+    .card.three { background: #a9f0e0; left: 57%; top: 1.1rem; transform: rotate(17deg); animation-delay: -2.6s; }
+    .card-symbol { position: absolute; z-index: 1; inset: 50% auto auto 50%; transform: translate(-50%, -50%); font-size: 3rem; font-weight: 1000; color: var(--ink); }
+    @keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+    .dots { position: absolute; inset: auto 0 -1rem auto; width: 8rem; height: 5rem; background-image: radial-gradient(var(--yellow) 2px, transparent 2px); background-size: 14px 14px; opacity: .8; }
+    .form-side { display: flex; align-items: center; justify-content: center; padding: 2rem; background: rgba(255,255,255,.66); backdrop-filter: blur(18px); }
+    .form-card { width: min(100%, 28rem); padding: clamp(1.5rem, 4vw, 3rem); background: rgba(255,255,255,.92); border: 1px solid rgba(255,255,255,.9); border-radius: 2rem; box-shadow: var(--shadow); animation: appear .7s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes appear { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: none; } }
+    .form-logo { color: var(--ink); font-size: 1.35rem; margin-bottom: 2.2rem; }
+    .form-card h2 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1; letter-spacing: -.06em; margin: 0 0 .65rem; }
+    .subtitle { color: var(--muted); margin: 0 0 1.75rem; line-height: 1.55; }
+    .field { display: grid; gap: .48rem; margin-top: 1rem; }
+    label { font-size: .84rem; font-weight: 800; }
+    input { width: 100%; border: 1px solid var(--line); border-radius: .9rem; padding: .95rem 1rem; color: var(--ink); background: #fbfcff; outline: none; font: inherit; transition: border-color .2s, box-shadow .2s, background .2s; }
+    input:focus { border-color: var(--blue); background: white; box-shadow: 0 0 0 4px rgba(36,87,230,.12); }
+    .password-wrap { position: relative; }
+    .password-wrap input { padding-right: 3.5rem; }
+    .toggle-password { position: absolute; right: .75rem; top: 50%; transform: translateY(-50%); border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: .78rem; font-weight: 800; }
+    .form-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 1.1rem 0 1.35rem; }
+    .remember { display: flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .82rem; }
+    .remember input { width: 1rem; height: 1rem; accent-color: var(--blue); }
+    a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .button { width: 100%; border: 0; border-radius: .9rem; padding: 1rem; color: white; background: var(--blue); font: inherit; font-weight: 900; cursor: pointer; box-shadow: 0 10px 20px rgba(36,87,230,.22); transition: transform .2s, box-shadow .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); background: var(--blue-dark); box-shadow: 0 14px 25px rgba(36,87,230,.28); }
+    .button:active { transform: translateY(0); }
+    .divider { display: flex; align-items: center; gap: .75rem; margin: 1.5rem 0; color: #9aa3bb; font-size: .75rem; }
+    .divider::before, .divider::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+    .support { text-align: center; color: var(--muted); font-size: .88rem; line-height: 1.5; }
+    .support a { color: var(--red); }
+    .toast { position: fixed; right: 1.25rem; bottom: 1.25rem; max-width: 22rem; padding: 1rem 1.1rem; border: 1px solid rgba(36,87,230,.16); border-radius: 1rem; color: var(--ink); background: white; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transform: translateY(1rem); transition: .3s ease; }
+    .toast.show { opacity: 1; transform: none; }
+    .welcome-screen { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 2rem; background: #fff; opacity: 0; pointer-events: none; transform: scale(1.02); transition: opacity .45s ease, transform .45s ease; }
+    .welcome-screen.show { opacity: 1; pointer-events: auto; transform: none; }
+    .welcome-inner { width: min(100%, 58rem); text-align: center; }
+    .welcome-logo { width: min(72vw, 25rem); max-height: 25rem; object-fit: contain; margin: 0 auto 1rem; filter: drop-shadow(0 18px 24px rgba(16,24,47,.12)); animation: welcome-bounce 1.4s ease-in-out infinite alternate; }
+    .welcome-kicker { margin: 0 0 .8rem; color: var(--blue); font-size: .82rem; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .welcome-title { margin: 0 auto 1.8rem; max-width: 14ch; color: var(--ink); font-size: clamp(2.8rem, 8vw, 6.8rem); line-height: .9; letter-spacing: -.08em; }
+    .welcome-back { width: auto; padding-inline: 2rem; }
+    @keyframes welcome-bounce { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-10px) rotate(1deg); } }
+    .signup-screen { position: fixed; inset: 0; z-index: 11; display: grid; place-items: center; padding: 1.25rem; background: rgba(244,247,255,.96); backdrop-filter: blur(12px); opacity: 0; pointer-events: none; transition: opacity .35s ease; overflow: auto; }
+    .signup-screen.show { opacity: 1; pointer-events: auto; }
+    .signup-card { width: min(100%, 34rem); margin: auto; padding: clamp(1.4rem, 4vw, 2.5rem); border: 1px solid rgba(255,255,255,.95); border-radius: 1.6rem; background: white; box-shadow: var(--shadow); transform: translateY(14px); transition: transform .35s ease; }
+    .signup-screen.show .signup-card { transform: none; }
+    .signup-card h2 { margin: 0 0 .5rem; font-size: 2.3rem; letter-spacing: -.06em; }
+    .signup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+    .signup-grid .field:first-child { grid-column: 1 / -1; }
+    .signup-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.4rem; }
+    .signup-actions .button { width: auto; }
+    .text-button { border: 0; background: transparent; color: var(--blue-dark); font: inherit; font-weight: 800; cursor: pointer; }
+    @media (max-width: 520px) { .signup-grid { grid-template-columns: 1fr; } .signup-grid .field:first-child { grid-column: auto; } .signup-actions { align-items: stretch; flex-direction: column-reverse; } .signup-actions .button { width: 100%; } }
+    @media (max-width: 880px) { .page { grid-template-columns: 1fr; } .brand-side { min-height: 43rem; padding-top: 3rem; padding-bottom: 3rem; } .mini-logo { margin-bottom: 3.5rem; } .form-side { padding: 1rem; } }
+    @media (max-width: 480px) { .brand-side { min-height: 35rem; } .orbit { transform: scale(.82); transform-origin: left top; margin-bottom: -2rem; } .form-card { border-radius: 1.3rem; } }
+
+    .collection-screen{position:fixed;inset:0;z-index:9;overflow:auto;padding:2rem;background:#f4f7ff;opacity:0;pointer-events:none;transform:translateY(12px);transition:.35s ease}.collection-screen.show{opacity:1;pointer-events:auto;transform:none}.collection-inner{width:min(100%,70rem);margin:auto}.collection-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}.collection-head h2{font-size:clamp(2rem,5vw,4rem);margin:0;letter-spacing:-.07em}.collection-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:1.25rem}.collection-panel{padding:1.5rem;border-radius:1.5rem;background:white;box-shadow:var(--shadow)}.collection-panel.dark{color:white;background:linear-gradient(145deg,#1a3db0,#2457e6)}.collection-panel input,.collection-panel textarea{margin-top:.45rem}.card-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}.saved-card{overflow:hidden;border:1px solid var(--line);border-radius:1rem;background:#fff;box-shadow:0 10px 20px rgba(25,49,113,.08)}.saved-card .stripe{height:.45rem;background:var(--yellow)}.saved-card .inside{padding:1rem}.saved-card .art{display:grid;place-items:center;height:6rem;margin-bottom:.8rem;border-radius:.7rem;background:linear-gradient(135deg,#a9f0e0,#fff4b9,#ffd2ea);font-size:2.5rem}.empty-cards{padding:3rem 1rem;text-align:center;border:2px dashed var(--line);border-radius:1rem;color:var(--muted)}.tiny-button{width:auto;padding:.7rem 1rem;box-shadow:none}@media(max-width:880px){.collection-grid{grid-template-columns:1fr}}@media(max-width:520px){.collection-screen{padding:1rem}.card-list{grid-template-columns:1fr}.collection-head{align-items:flex-start;flex-direction:column}}
   </style>
 </head>
 <body>
-  <section id="auth" class="auth">
-    <div class="auth-card">
-      <div class="logo"><img src="clickcards-logo-transparent.png" alt="ClickCards"><span><b style="color:#10cfd0">click</b><b>cards</b></span></div>
-      <div class="tabs"><button id="tab-login" class="tab active" type="button">Entrar</button><button id="tab-signup" class="tab" type="button">Criar conta</button></div>
-      <div id="login-view"><p class="eyebrow">sua coleção começa aqui</p><h1>Entre no ClickCards</h1><p class="muted">Use seu e-mail e senha para acessar seus cards salvos no banco de dados.</p><form id="login-form"><label class="field">E-mail<input id="login-email" type="email" autocomplete="email" required placeholder="voce@email.com"></label><label class="field">Senha<input id="login-password" type="password" autocomplete="current-password" required minlength="8" placeholder="Sua senha"></label><button class="primary">Entrar na minha coleção →</button></form></div>
-      <div id="signup-view" class="hidden"><p class="eyebrow">primeiro passo</p><h1>Crie sua conta</h1><p class="muted">Você cria seu próprio acesso. O suporte não precisa cadastrar você.</p><form id="signup-form"><label class="field">E-mail<input id="signup-email" type="email" autocomplete="email" required placeholder="voce@email.com"></label><label class="field">Senha<input id="signup-password" type="password" autocomplete="new-password" required minlength="8" placeholder="Mínimo de 8 caracteres"></label><label class="field">Nome de usuário<input id="signup-username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_]+" placeholder="ex.: marcovs09"></label><label class="field">Data de nascimento<input id="signup-birth" type="date" required></label><button class="primary">Criar minha conta →</button></form></div>
-      <div id="notice" class="notice hidden"></div><p class="support">Precisa de ajuda? <a href="mailto:clickcardd@gmail.com">clickcardd@gmail.com</a></p>
+  <main class="page">
+    <section class="brand-side" aria-label="Apresentação do ClickCards">
+      <div class="brand-content">
+        <div class="mini-logo"><span class="logo-mark" aria-hidden="true"></span>clickcards</div>
+        <img class="brand-art" src="clickcards-logo-transparent.png" alt="Logo Click Cards com três mascotes coloridos" />
+        <div class="eyebrow">colecione do seu jeito</div>
+        <h1>Suas cartas. Sua história.</h1>
+        <p class="brand-copy">Crie, organize e troque cards únicos com a sua comunidade. Um espaço feito para quem gosta de descobrir detalhes e guardar momentos.</p>
+        <div class="orbit" aria-hidden="true">
+          <div class="card one"><span class="card-symbol">✦</span></div>
+          <div class="card two"><span class="card-symbol">●</span></div>
+          <div class="card three"><span class="card-symbol">✚</span></div>
+          <div class="dots"></div>
+        </div>
+      </div>
+    </section>
+    <section class="form-side">
+      <div class="form-card">
+        <div class="form-logo"><span class="logo-mark" aria-hidden="true"></span>clickcards</div>
+        <h2>Que bom ter você aqui.</h2>
+        <p class="subtitle">Entre para continuar sua coleção.</p>
+        <form id="login-form">
+          <div class="field"><label for="username">E-mail</label><input id="username" name="username" type="email" autocomplete="email" placeholder="voce@email.com" required /></div>
+          <div class="field"><label for="password">Senha</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required /><button class="toggle-password" type="button" id="toggle-password">Mostrar</button></div></div>
+          <div class="form-row"><label class="remember"><input type="checkbox" name="remember" /> Lembrar de mim</label><a href="mailto:clickcardd@gmail.com?subject=Esqueci%20minha%20senha">Esqueci minha senha</a></div>
+          <button class="button" type="submit">Entrar na coleção</button>
+        </form>
+        <div class="divider">ainda não tem uma conta?</div>
+        <button class="text-button" type="button" id="open-signup">Criar minha conta</button>
+        <p class="support">Sua conta é criada por você e fica salva com segurança no banco de dados. Precisa de ajuda? <a href="mailto:clickcardd@gmail.com">Fale com o suporte</a>.</p>
+      </div>
+    </section>
+  </main>
+  <section class="welcome-screen" id="welcome-screen" aria-hidden="true">
+    <div class="welcome-inner">
+      <p class="welcome-kicker">sua coleção começou</p>
+      <img class="welcome-logo" src="clickcards-logo-transparent.png" alt="Logo Click Cards" />
+      <h2 class="welcome-title">Marck tem uma teta grande</h2>
+      <button class="button welcome-back" type="button" id="back-to-login">Voltar para o login</button>
     </div>
   </section>
-  <section id="app" class="app hidden"><header class="topbar"><div class="shell"><div class="logo"><img src="clickcards-logo-transparent.png" alt="ClickCards"><span><b style="color:#10cfd0">click</b><b>cards</b></span></div><div><span id="user-label" style="font-weight:900;margin-right:12px"></span><button id="logout" class="logout">Sair</button></div></div></header><main class="main shell"><div class="grid"><section class="panel hero"><p class="eyebrow" style="color:#ffd348">novo card</p><h1>Crie uma peça que seja só sua.</h1><p class="muted">Tudo que você salvar fica ligado à sua conta no banco de dados do ClickCards.</p><form id="card-form"><label class="field">Título<input id="card-title" required maxlength="80" placeholder="Meu card especial"></label><label class="field">Subtítulo<input id="card-subtitle" maxlength="120" placeholder="Uma frase curta"></label><label class="field">Descrição<textarea id="card-description" rows="4" maxlength="1000" placeholder="Conte a história desse card…"></textarea></label><button class="primary">Salvar na coleção</button></form></section><section class="panel"><p class="eyebrow">seus cards</p><h2 style="display:inline-block">Coleção</h2><span id="count" class="count">0 cards</span><div id="cards" class="cards"></div></section></div></main></section>
-  <section id="welcome" class="welcome hidden"><div class="welcome-box"><img src="clickcards-logo-transparent.png" alt="ClickCards"><h2>Marck tem uma teta grande</h2><p>Sua conta foi criada. Bem-vindo à sua coleção.</p><button id="close-welcome" class="close">Abrir meus cards</button></div></section><div id="toast" class="toast hidden"></div>
+  <section class="signup-screen" id="signup-screen" aria-hidden="true">
+    <div class="signup-card">
+      <div class="form-logo"><span class="logo-mark" aria-hidden="true"></span>clickcards</div>
+      <h2>Crie sua conta</h2>
+      <p class="subtitle">Você mesmo cria seu acesso. O suporte só ajuda se precisar.</p>
+      <form id="signup-form">
+        <div class="signup-grid">
+          <div class="field"><label for="signup-username">Usuário</label><input id="signup-username" autocomplete="username" placeholder="Escolha um nome de usuário" required /></div>
+          <div class="field"><label for="signup-email">E-mail</label><input id="signup-email" type="email" autocomplete="email" placeholder="voce@email.com" required /></div>
+          <div class="field"><label for="signup-birthdate">Data de nascimento</label><input id="signup-birthdate" type="date" autocomplete="bday" required /></div>
+          <div class="field"><label for="signup-password">Senha</label><input id="signup-password" type="password" autocomplete="new-password" placeholder="Crie uma senha" minlength="8" required /></div>
+          <div class="field"><label for="signup-password-confirm">Confirmar senha</label><input id="signup-password-confirm" type="password" autocomplete="new-password" placeholder="Repita a senha" minlength="8" required /></div>
+        </div>
+        <div class="signup-actions"><button class="text-button" type="button" id="close-signup">Voltar para entrar</button><button class="button" type="submit">Criar conta</button></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="collection-screen" id="collection-screen" aria-hidden="true"><div class="collection-inner"><div class="collection-head"><div><p class="welcome-kicker">sua coleção</p><h2 id="collection-title">Seus cards.</h2></div><button class="button tiny-button" type="button" id="logout">Sair</button></div><div class="collection-grid"><div class="collection-panel dark"><p class="eyebrow">novo card</p><h2 style="font-size:2.2rem;margin:.6rem 0">Crie uma peça só sua.</h2><form id="card-form"><div class="field"><label for="card-title">Título</label><input id="card-title" maxlength="80" required placeholder="Meu primeiro card" /></div><div class="field"><label for="card-subtitle">Subtítulo</label><input id="card-subtitle" maxlength="120" placeholder="Uma frase curta" /></div><div class="field"><label for="card-description">Descrição</label><textarea id="card-description" rows="4" maxlength="1000" placeholder="Conte a história desse card…"></textarea></div><button class="button" style="margin-top:1rem;background:var(--yellow);color:var(--ink)" type="submit">Salvar card</button></form></div><div class="collection-panel"><p class="welcome-kicker">salvos no banco</p><div id="card-list" class="card-list"></div></div></div></div></section>
+  <div class="toast" id="toast" role="status"></div>
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-    const supabase = createClient('https://adjiwcjqlzijnqhwgccn.supabase.co','sb_publishable_0z51eAvIZ3o4c--Aqmzkzw_WUAtlsLX');
-    const $ = (id) => document.getElementById(id);
-    const toast = (message) => { $('toast').textContent = message; $('toast').classList.remove('hidden'); setTimeout(() => $('toast').classList.add('hidden'), 3800); };
-    const pendingKey = 'clickcards_pending_profile';
-    function showTab(tab){ const login=tab==='login'; $('login-view').classList.toggle('hidden',!login); $('signup-view').classList.toggle('hidden',login); $('tab-login').classList.toggle('active',login); $('tab-signup').classList.toggle('active',!login); }
-    $('tab-login').onclick=()=>showTab('login'); $('tab-signup').onclick=()=>showTab('signup');
-    async function finishProfile(user){ let profile=(await supabase.from('profiles').select('*').eq('id',user.id).maybeSingle()).data; if(!profile){ const pending=JSON.parse(localStorage.getItem(pendingKey)||'null'); if(pending){ const result=await supabase.from('profiles').insert({id:user.id,username:pending.username,birth_date:pending.birthDate}).select().single(); if(result.error){toast(result.error.message);return null} profile=result.data;localStorage.removeItem(pendingKey);} } return profile; }
-    async function renderCards(user){ const result=await supabase.from('cards').select('*').eq('owner_id',user.id).order('created_at',{ascending:false}); if(result.error){toast(result.error.message);return} const list=$('cards');list.replaceChildren();$('count').textContent=`${result.data.length} ${result.data.length===1?'card':'cards'}`; if(!result.data.length){list.innerHTML='<div class="empty" style="grid-column:1/-1"><strong>Sua coleção está esperando</strong>Use o formulário ao lado para criar seu primeiro card.</div>';return} result.data.forEach(card=>{const article=document.createElement('article');article.className='card';article.innerHTML='<div class="stripe"></div><div class="card-body"><div class="art">✦</div></div>';article.querySelector('.stripe').style.background=card.accent_color||'#10cfd0';const body=article.querySelector('.card-body');const title=document.createElement('h3');title.textContent=card.title;title.style.cssText='font-size:22px;margin:0;font-weight:900';body.append(title);if(card.subtitle){const sub=document.createElement('p');sub.textContent=card.subtitle;sub.style.cssText='color:#ee3b9c;font-weight:900;margin:4px 0';body.append(sub)}if(card.description){const desc=document.createElement('p');desc.textContent=card.description;desc.className='muted';body.append(desc)}list.append(article)}); }
-    async function enterApp(user,showWelcome=false){ const profile=await finishProfile(user); if(!profile){ $('auth').classList.remove('hidden');return; } $('auth').classList.add('hidden');$('app').classList.remove('hidden');$('user-label').textContent='@'+profile.username;await renderCards(user);if(showWelcome)$('welcome').classList.remove('hidden'); }
-    $('signup-form').onsubmit=async(e)=>{e.preventDefault();const email=$('signup-email').value,password=$('signup-password').value,username=$('signup-username').value,birthDate=$('signup-birth').value;localStorage.setItem(pendingKey,JSON.stringify({username,birthDate}));const result=await supabase.auth.signUp({email,password});if(result.error){toast(result.error.message);return}if(result.data.session){await enterApp(result.data.user,true)}else{showTab('login');$('notice').textContent='Conta criada. Verifique seu e-mail e depois entre para continuar.';$('notice').classList.remove('hidden');}};
-    $('login-form').onsubmit=async(e)=>{e.preventDefault();const result=await supabase.auth.signInWithPassword({email:$('login-email').value,password:$('login-password').value});if(result.error){toast(result.error.message);return}await enterApp(result.data.user)};
-    $('card-form').onsubmit=async(e)=>{e.preventDefault();const session=(await supabase.auth.getSession()).data.session;if(!session){toast('Sua sessão expirou. Entre novamente.');return}const result=await supabase.from('cards').insert({owner_id:session.user.id,title:$('card-title').value,subtitle:$('card-subtitle').value||null,description:$('card-description').value||null}).select().single();if(result.error){toast(result.error.message);return}e.target.reset();await renderCards(session.user);toast('Card salvo na sua coleção.')};
-    $('logout').onclick=async()=>{await supabase.auth.signOut();$('app').classList.add('hidden');$('auth').classList.remove('hidden');showTab('login')};$('close-welcome').onclick=()=> $('welcome').classList.add('hidden');
-    const current=(await supabase.auth.getSession()).data.session;if(current)await enterApp(current.user);
-    supabase.auth.onAuthStateChange((_event,session)=>{if(session&&!$('app').classList.contains('hidden'))return;if(session)enterApp(session.user)});
+    const supabase=createClient('https://adjiwcjqlzijnqhwgccn.supabase.co','sb_publishable_0z51eAvIZ3o4c--Aqmzkzw_WUAtlsLX');
+    const $=s=>document.querySelector(s); const toast=m=>{ $('#toast').textContent=m; $('#toast').classList.add('show'); setTimeout(()=>$('#toast').classList.remove('show'),3600); }; const pendingKey='clickcards_pending_profile';
+    const password=$('#password'); $('#toggle-password').onclick=()=>{const v=password.type==='text';password.type=v?'password':'text';$('#toggle-password').textContent=v?'Mostrar':'Ocultar';};
+    $('#open-signup').onclick=()=>{$('#signup-screen').classList.add('show');$('#signup-screen').setAttribute('aria-hidden','false')}; $('#close-signup').onclick=()=>{$('#signup-screen').classList.remove('show');$('#signup-screen').setAttribute('aria-hidden','true')};
+    async function profile(user){let p=(await supabase.from('profiles').select('*').eq('id',user.id).maybeSingle()).data;if(!p){const x=JSON.parse(localStorage.getItem(pendingKey)||'null');if(x){const r=await supabase.from('profiles').insert({id:user.id,username:x.username,birth_date:x.birthDate}).select().single();if(r.error){toast(r.error.message);return null}p=r.data;localStorage.removeItem(pendingKey)}}return p}
+    async function cards(user){const r=await supabase.from('cards').select('*').eq('owner_id',user.id).order('created_at',{ascending:false});if(r.error){toast(r.error.message);return}const list=$('#card-list');list.replaceChildren();if(!r.data.length){list.innerHTML='<div class="empty-cards" style="grid-column:1/-1"><strong>Sua coleção está esperando</strong><br>Crie seu primeiro card ao lado.</div>';return}r.data.forEach(c=>{const a=document.createElement('article');a.className='saved-card';a.innerHTML='<div class="stripe"></div><div class="inside"><div class="art">✦</div></div>';a.querySelector('.stripe').style.background=c.accent_color||'#ffd45a';const b=a.querySelector('.inside');const t=document.createElement('h3');t.textContent=c.title;t.style.cssText='margin:0;font-size:1.3rem;letter-spacing:-.04em';b.append(t);if(c.subtitle){const s=document.createElement('p');s.textContent=c.subtitle;s.style.cssText='margin:.25rem 0;color:#ed4c58;font-weight:800';b.append(s)}if(c.description){const d=document.createElement('p');d.textContent=c.description;d.className='muted';b.append(d)}list.append(a)})}
+    async function openCollection(user){const p=await profile(user);if(!p)return;$('#collection-title').textContent='@'+p.username+', sua coleção.';$('#collection-screen').classList.add('show');$('#collection-screen').setAttribute('aria-hidden','false');await cards(user)}
+    const welcome=()=>{$('#welcome-screen').classList.add('show');$('#welcome-screen').setAttribute('aria-hidden','false')}; const continueIn=user=>{$('#welcome-screen').classList.remove('show');$('#welcome-screen').setAttribute('aria-hidden','true');openCollection(user)};
+    $('#login-form').onsubmit=async e=>{e.preventDefault();const r=await supabase.auth.signInWithPassword({email:$('#username').value,password:password.value});if(r.error){toast(r.error.message);return}welcome();$('#back-to-login').onclick=()=>continueIn(r.data.user)};
+    $('#signup-form').onsubmit=async e=>{e.preventDefault();const p=$('#signup-password').value;if(p!==$('#signup-password-confirm').value){toast('As senhas precisam ser iguais.');return}localStorage.setItem(pendingKey,JSON.stringify({username:$('#signup-username').value,birthDate:$('#signup-birthdate').value}));const r=await supabase.auth.signUp({email:$('#signup-email').value,password:p});if(r.error){toast(r.error.message);return}$('#signup-screen').classList.remove('show');if(r.data.session){welcome();$('#back-to-login').onclick=()=>continueIn(r.data.user)}else toast('Conta criada. Confirme o e-mail e depois entre.')};
+    $('#card-form').onsubmit=async e=>{e.preventDefault();const s=(await supabase.auth.getSession()).data.session;if(!s){toast('Sua sessão expirou.');return}const r=await supabase.from('cards').insert({owner_id:s.user.id,title:$('#card-title').value,subtitle:$('#card-subtitle').value||null,description:$('#card-description').value||null}).select().single();if(r.error){toast(r.error.message);return}e.target.reset();await cards(s.user);toast('Card salvo na sua coleção.')};
+    $('#logout').onclick=async()=>{await supabase.auth.signOut();$('#collection-screen').classList.remove('show');$('#collection-screen').setAttribute('aria-hidden','true')}; const s=(await supabase.auth.getSession()).data.session;if(s)openCollection(s.user);
   </script>
 </body>
 </html>
