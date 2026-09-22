@@ -207,6 +207,43 @@
 
     .cc-item-art.card-art{overflow:hidden}.cc-item-art.card-art img{display:block;width:100%;height:100%;object-fit:contain}
 
+
+    /* Mobile collection layout: keep every panel inside the viewport. */
+    @media (max-width: 620px) {
+      html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+      .cc-dashboard { padding: .7rem; }
+      .cc-shell, .cc-main, .cc-view, .cc-panel, .cc-hero, .cc-layout { width: 100%; max-width: 100%; min-width: 0; }
+      .cc-topbar { align-items: flex-start; flex-wrap: wrap; padding-bottom: .7rem; }
+      .cc-brand { font-size: 1rem; }
+      .cc-user { margin-left: auto; max-width: 100%; }
+      .cc-logout { padding: .6rem .75rem; }
+      .cc-sidebar { padding: .45rem; overflow: hidden; }
+      .cc-nav { display: flex; width: 100%; max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+      .cc-nav::-webkit-scrollbar, .cc-chat-rooms::-webkit-scrollbar { display: none; }
+      .cc-nav button { flex: 0 0 auto; min-width: max-content; padding: .65rem .7rem; font-size: .82rem; }
+      .cc-hero { display: block; padding: 1.25rem; border-radius: 1.15rem; }
+      .cc-hero h1 { max-width: 100%; font-size: clamp(2rem, 11vw, 3.2rem); line-height: .95; overflow-wrap: anywhere; }
+      .cc-hero p { max-width: 100%; font-size: .95rem; overflow-wrap: anywhere; }
+      .cc-section-head { align-items: flex-start; flex-direction: column; margin-top: 1.15rem; }
+      .cc-grid { grid-template-columns: 1fr 1fr; gap: .65rem; }
+      .cc-grid .cc-stat:first-child { grid-column: 1 / -1; }
+      .cc-stat, .cc-collection-card, .cc-panel { padding: .9rem; }
+      .cc-stat strong { font-size: 1.55rem; }
+      .cc-collection-card { min-height: 9rem; }
+      .cc-form-grid, .cc-item-grid { grid-template-columns: 1fr; }
+      .cc-chat-layout { min-width: 0; }
+      .cc-chat-rooms { max-width: 100%; overflow-x: auto; }
+      .cc-chat-main { min-width: 0; }
+      .cc-chat-compose { flex-wrap: wrap; }
+      .cc-chat-compose input { min-width: 0; width: 100%; }
+      .cc-chat-compose .cc-button { width: 100%; margin-top: 0; }
+      .cc-rarity-grid { grid-template-columns: repeat(2, 1fr); }
+      .cc-daily-trail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cc-day-node { min-height: 6rem; }
+      .cc-list-item { flex-direction: column; }
+      .cc-list-item .cc-badge, .cc-list-item .cc-price { align-self: flex-start; }
+      .cc-pack-dialog { width: 100%; max-width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -299,7 +336,10 @@
     $('#open-signup').onclick=()=>{$('#signup-screen').classList.add('show');$('#signup-screen').setAttribute('aria-hidden','false')}; $('#close-signup').onclick=()=>{$('#signup-screen').classList.remove('show');$('#signup-screen').setAttribute('aria-hidden','true')};
     const pendingKey='clickcards_pending_profile'; const authMessage=error=>{const code=error?.code||error?.error_code||'';const message=(error?.message||'').toLowerCase();if(code==='over_email_send_rate_limit'||message.includes('email rate limit exceeded'))return 'O envio de e-mails atingiu o limite temporário. Aguarde e tente novamente.';if(code==='email_not_confirmed')return 'Confirme seu e-mail antes de entrar.';if(code==='invalid_credentials')return 'E-mail ou senha inválidos.';return error?.message||'Não foi possível concluir agora.'};
     const setBusy=(form,busy,label)=>{const button=form.querySelector('button[type="submit"]');if(button){button.disabled=busy;button.textContent=busy?'Aguarde…':label}};
-    const stateKey=user=>`clickcard_state_${user.id}`; const getState=user=>{try{const key=stateKey(user),raw=JSON.parse(localStorage.getItem(key)||'null'),params=new URLSearchParams(location.search),demo=params.get('demo-packs')==='10'&&!localStorage.getItem('clickcards_demo_pack_granted'),marckGrant=params.get('marck-packs')==='10'&&!localStorage.getItem('clickcards_marck_pack_granted'),boosterGrant=params.get('booster')==='1'&&!localStorage.getItem('clickcards_booster_granted'),grant=demo||marckGrant;if(raw&&raw.packRuleVersion===2){if(grant){raw.packs=(Number(raw.packs)||0)+10;if(demo)localStorage.setItem('clickcards_demo_pack_granted','1');if(marckGrant)localStorage.setItem('clickcards_marck_pack_granted','1')}if(boosterGrant){raw.boxes=(Number(raw.boxes)||0)+1;localStorage.setItem('clickcards_booster_granted','1')}if(grant||boosterGrant)localStorage.setItem(key,JSON.stringify(raw));return {...raw,packs:Math.max(0,Number.isFinite(raw.packs)?raw.packs:3),dailyDay:Math.min(10,Math.max(0,raw.dailyDay||0))}}const fresh={packs:3+(grant?10:0),dailyDay:0,lastClaimDate:null,packRuleVersion:2,friends:raw?.friends||[],ads:raw?.ads||[],trades:raw?.trades||[],boxes:boosterGrant?1:0};if(demo)localStorage.setItem('clickcards_demo_pack_granted','1');if(marckGrant)localStorage.setItem('clickcards_marck_pack_granted','1');if(boosterGrant)localStorage.setItem('clickcards_booster_granted','1');localStorage.setItem(key,JSON.stringify(fresh));return fresh}catch{return {packs:3,dailyDay:0,lastClaimDate:null,packRuleVersion:2,friends:[],ads:[],trades:[],boxes:0}}}; const saveState=(user,s)=>localStorage.setItem(stateKey(user),JSON.stringify(s));
+    const stateKey=user=>`clickcard_state_${user.id}`; const getState=user=>{try{const key=stateKey(user),raw=JSON.parse(localStorage.getItem(key)||'null'),params=new URLSearchParams(location.search),demo=params.get('demo-packs')==='10'&&!localStorage.getItem('clickcards_demo_pack_granted'),marckGrant=params.get('marck-packs')==='10'&&!localStorage.getItem('clickcards_marck_pack_granted'),boosterGrant=params.get('booster')==='1'&&!localStorage.getItem('clickcards_booster_granted'),grant=demo||marckGrant;if(raw&&raw.packRuleVersion===2){if(grant){raw.packs=(Number(raw.packs)||0)+10;if(demo)localStorage.setItem('clickcards_demo_pack_granted','1');if(marckGrant)localStorage.setItem('clickcards_marck_pack_granted','1')}if(boosterGrant){raw.boxes=(Number(raw.boxes)||0)+1;localStorage.setItem('clickcards_booster_granted','1')}if(grant||boosterGrant)localStorage.setItem(key,JSON.stringify(raw));return {...raw,packs:Math.max(0,Number.isFinite(raw.packs)?raw.packs:3),dailyDay:Math.min(10,Math.max(0,raw.dailyDay||0))}}const fresh={packs:3+(grant?10:0),dailyDay:0,lastClaimDate:null,packRuleVersion:2,friends:raw?.friends||[],ads:raw?.ads||[],trades:raw?.trades||[],boxes:boosterGrant?1:0};if(demo)localStorage.setItem('clickcards_demo_pack_granted','1');if(marckGrant)localStorage.setItem('clickcards_marck_pack_granted','1');if(boosterGrant)localStorage.setItem('clickcards_booster_granted','1');localStorage.setItem(key,JSON.stringify(fresh));return fresh}catch{return {packs:3,dailyDay:0,lastClaimDate:null,packRuleVersion:2,friends:[],ads:[],trades:[],boxes:0}}}; let stateSyncQueue=Promise.resolve();
+    const syncStateToSupabase=(user,state)=>{const snapshot=JSON.parse(JSON.stringify(state));stateSyncQueue=stateSyncQueue.catch(()=>{}).then(async()=>{const result=await supabase.auth.updateUser({data:{clickcards_state:snapshot}});if(result.error)throw result.error}).catch(error=>console.warn('ClickCards state sync failed',error));return stateSyncQueue};
+    const saveState=(user,s)=>{localStorage.setItem(stateKey(user),JSON.stringify(s));syncStateToSupabase(user,s);};
+    async function hydrateState(user){const result=await supabase.auth.getUser();const freshUser=result.data?.user||user;const remote=freshUser.user_metadata?.clickcards_state;if(remote&&typeof remote==='object'){localStorage.setItem(stateKey(freshUser),JSON.stringify(remote));return freshUser}await syncStateToSupabase(freshUser,getState(freshUser));return freshUser}
     let currentUser=null; let currentProfile=null;
     async function profile(user){const result=await supabase.from('profiles').select('*').eq('id',user.id).maybeSingle();if(result.data)return result.data;const x=JSON.parse(localStorage.getItem(pendingKey)||'null');if(x){const r=await supabase.from('profiles').insert({id:user.id,username:x.username,birth_date:x.birthDate}).select().single();if(!r.error){localStorage.removeItem(pendingKey);return r.data}}return {username:user.user_metadata?.username||user.email?.split('@')[0]||'colecionador'}}
     const catalogCards=[{id:'catalog-rodolfo',title:'RODOLFO',subtitle:'Coleção Click Card',rarity:'Comum',symbol:'✦',image:'card-rodolfo.png',description:'Comum · R$0,93 · não limitada · chance de aparecer: 50%',marketValue:'R$0,93',limited:'Não',dropChance:'50%'}];
@@ -313,7 +353,7 @@
     function renderList(selector,items,empty){const el=$(selector);el.replaceChildren();if(!items.length){el.innerHTML=`<div class="cc-empty">${empty}</div>`;return}items.forEach(item=>el.insertAdjacentHTML('beforeend',item))}
     function renderState(){if(!currentUser)return;const s=getState(currentUser);const friends=s.friends||[];const ads=s.ads||[];const trades=s.trades||[];$('#friends-count').textContent=`${friends.length} amigo${friends.length===1?'':'s'}`;$('#stat-friends').textContent=friends.length;renderList('#friend-list',friends.map(f=>`<div class="cc-list-item friend-row"><div><h3>${escapeHtml(f)}</h3><p>Amigo do Click Card · conversa privada</p></div><button class="button cc-button secondary chat-friend" type="button" data-friend="${escapeHtml(f)}" style="margin:0">Conversar</button></div>`),'Sua lista ainda está vazia.');$$('#friend-list .chat-friend').forEach(b=>b.onclick=()=>{const friend=b.dataset.friend;activate('chat');$('#chat-room-title').textContent=`Conversa: ${friend}`;renderGroups(getState(currentUser));renderChat(getState(currentUser))});renderList('#ad-list',ads.map(a=>`<div class="cc-list-item"><div><span class="cc-badge">${escapeHtml(a.type)}</span><h3>${escapeHtml(a.title)}</h3><p>${escapeHtml(a.description||'Sem descrição')}<br>Discord: <strong>${escapeHtml(a.discord)}</strong></p></div><span class="cc-price">${escapeHtml(a.price||'0')} moedas</span></div>`), 'Nenhum anúncio ainda. Publique o primeiro.');renderList('#trade-list',trades.map(t=>`<div class="cc-list-item"><div><h3>Pedido para ${escapeHtml(t.user)}</h3><p>${escapeHtml(t.item)} por ${escapeHtml(t.want)}</p></div><span class="cc-badge">5 min</span></div>`),'Nenhum pedido de troca enviado.');$('#daily-streak').textContent=`Dia ${s.dailyDay||0} de 10 · ${s.packs??3} pacotes guardados`;$('#daily-progress').style.width=`${Math.min(100,(s.dailyDay||0)*10)}%`;$('#stat-packs').textContent=s.packs??3;const dailyButton=$('#claim-daily');if(dailyButton){const claimed=s.lastClaimDate===today();dailyButton.disabled=claimed||(s.dailyDay||0)>=10;dailyButton.textContent=claimed?'Pacote de hoje já resgatado':(s.dailyDay||0)>=10?'10 dias completos':'Resgatar 1 pacote'}renderDailyTrail(s);renderGroups(s);renderChat(s)}
     function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-    async function openDashboard(user){currentUser=user;currentProfile=await profile(user);const name=currentProfile?.username||user.email?.split('@')[0]||'colecionador';$('#cc-user-name').textContent='@'+name;$('#cc-avatar').textContent=name.slice(0,2).toUpperCase();showDashboard();renderState();await renderInventory()}
+    async function openDashboard(user){currentUser=await hydrateState(user);currentProfile=await profile(currentUser);const name=currentProfile?.username||user.email?.split('@')[0]||'colecionador';$('#cc-user-name').textContent='@'+name;$('#cc-avatar').textContent=name.slice(0,2).toUpperCase();showDashboard();renderState();await renderInventory()}
     $$('[data-view]').forEach(b=>b.onclick=()=>{activate(b.dataset.view);if(b.dataset.view==='inventory')renderInventory()});$$('[data-jump]').forEach(b=>b.onclick=()=>{activate(b.dataset.jump);if(b.dataset.jump==='inventory')renderInventory()});$$('[data-inventory]').forEach(b=>b.onclick=()=>{$$('[data-inventory]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderInventory()});
     $('#ad-submit').onclick=()=>{const title=$('#ad-title').value.trim();if(!title){toast('Dê um título ao anúncio.');return}const s=getState(currentUser);s.ads=[...(s.ads||[]),{type:$('#ad-type').value,title,description:$('#ad-description').value,price:$('#ad-price').value||'0',discord:$('#ad-discord').value||'não informado'}];saveState(currentUser,s);$('#ad-title').value='';$('#ad-description').value='';$('#ad-price').value='';renderState();toast('Anúncio publicado no painel.')};
     $('#friend-submit').onclick=()=>{const nick=$('#friend-user').value.trim();if(!nick){toast('Digite o nick do Discord.');return}const s=getState(currentUser);s.friends=[...new Set([...(s.friends||[]),nick])];saveState(currentUser,s);$('#friend-user').value='';renderState();toast('Amigo adicionado.')};
