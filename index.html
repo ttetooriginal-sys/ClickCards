@@ -270,6 +270,13 @@
     .cc-pack-modal { background:#f4f7ff; backdrop-filter:none; }
 
     .page.login-hidden { display:none !important; }
+
+    @media (max-width:620px) {
+      #collection-screen.cc-dashboard { padding-left:.4rem; padding-right:.4rem; }
+      #collection-screen.cc-dashboard .cc-sidebar { padding:.15rem; }
+      #collection-screen.cc-dashboard .cc-nav { gap:0; margin:0; }
+      #collection-screen.cc-dashboard .cc-nav button { padding:.25rem .32rem; margin:0; font-size:.61rem; letter-spacing:-.015em; }
+    }
     /* Mobile collection layout: keep every panel inside the viewport. */
     @media (max-width: 620px) {
       html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
