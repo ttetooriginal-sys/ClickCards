@@ -390,6 +390,16 @@
       #pack-modal .cc-card-reveal.show { padding-bottom:5rem; }
       #pack-modal .cc-card-face { height:calc(100dvh - 14rem); max-height:calc(100dvh - 14rem); }
     }
+
+    /* The next control belongs directly below the sticker, centered. */
+    #pack-modal .cc-card-reveal.show { display:flex; flex:0 0 auto; height:min(70dvh,48rem); min-height:0; padding:.4rem 0 0; overflow:visible; }
+    #pack-modal .cc-card-face { height:min(66dvh,45rem); max-height:min(66dvh,45rem); }
+    #pack-modal #pack-next-card.show { position:relative !important; left:auto !important; bottom:auto !important; margin:.7rem auto 0 !important; transform:none !important; }
+    @media (max-width:620px) {
+      #pack-modal .cc-card-reveal.show { flex:0 0 auto; height:calc(100dvh - 15rem); padding:.2rem 0 0; }
+      #pack-modal .cc-card-face { width:min(88vw,32rem); height:100%; max-height:100%; }
+      #pack-modal #pack-next-card.show { margin:.65rem auto 0 !important; }
+    }
   </style>
 </head>
 <body>
