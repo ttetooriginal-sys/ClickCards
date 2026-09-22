@@ -414,6 +414,10 @@
     #collection-screen.cc-dashboard .cc-shell,
     #collection-screen.cc-dashboard .cc-main,
     #collection-screen.cc-dashboard .cc-view { touch-action:pan-y; }
+
+    /* Give the end of the dashboard a real scrollable touch area on mobile. */
+    #collection-screen.cc-dashboard { padding-bottom:8rem; overscroll-behavior-y:auto; }
+    #collection-screen.cc-dashboard .cc-shell { padding-bottom:6rem; }
   </style>
 </head>
 <body>
