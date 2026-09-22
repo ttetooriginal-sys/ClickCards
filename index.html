@@ -277,6 +277,11 @@
       #collection-screen.cc-dashboard .cc-nav { gap:0; margin:0; }
       #collection-screen.cc-dashboard .cc-nav button { padding:.25rem .32rem; margin:0; font-size:.61rem; letter-spacing:-.015em; }
     }
+
+    @media (max-width:620px) {
+      #collection-screen.cc-dashboard .cc-nav { display:flex; justify-content:flex-start; align-items:center; width:100%; }
+      #collection-screen.cc-dashboard .cc-nav button { width:auto !important; max-width:max-content; flex:0 0 auto; min-width:0; white-space:nowrap; }
+    }
     /* Mobile collection layout: keep every panel inside the viewport. */
     @media (max-width: 620px) {
       html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
