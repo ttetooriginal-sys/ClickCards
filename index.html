@@ -265,6 +265,9 @@
       #collection-screen.cc-dashboard .cc-nav { flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden; touch-action:pan-x; scrollbar-width:none; }
       #collection-screen.cc-dashboard .cc-nav button { flex:0 0 auto; min-width:max-content; min-height:1.75rem; padding:.27rem .42rem; font-size:.64rem; }
     }
+
+    /* The card-opening view is a standalone screen, not a transparent layer over the dashboard. */
+    .cc-pack-modal { background:#f4f7ff; backdrop-filter:none; }
     /* Mobile collection layout: keep every panel inside the viewport. */
     @media (max-width: 620px) {
       html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
