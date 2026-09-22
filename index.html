@@ -431,6 +431,18 @@
       #pack-modal .cc-card-face { width:min(88vw,34rem); height:calc(100dvh - 10.5rem); max-height:calc(100dvh - 10.5rem); }
       #pack-modal #pack-next-card.show { margin:.7rem auto 0 !important; }
     }
+
+    /* Reference layout: large portrait sticker inside the card, navigation below the card. */
+    #pack-modal .cc-card-reveal.show { display:flex; flex:0 0 auto; align-items:center; justify-content:center; height:min(78dvh,52rem); min-height:0; padding:0; overflow:visible; }
+    #pack-modal .cc-card-face { display:flex; flex-direction:column; justify-content:space-between; align-items:stretch; width:min(88vw,34rem); height:min(74dvh,50rem); max-height:min(74dvh,50rem); padding:1rem; }
+    #pack-modal .cc-card-face .cc-card-character { display:block; flex:0 0 74% !important; align-self:center; width:100% !important; height:74% !important; min-height:0 !important; max-height:none !important; object-fit:contain !important; object-position:center; }
+    #pack-modal #pack-next-card.show { display:inline-flex; position:relative !important; align-self:center; margin:.75rem auto 0 !important; left:auto !important; bottom:auto !important; transform:none !important; }
+    @media (max-width:620px) {
+      #pack-modal .cc-card-reveal.show { height:calc(100dvh - 10.5rem); }
+      #pack-modal .cc-card-face { width:min(88vw,34rem); height:calc(100dvh - 10.5rem); max-height:calc(100dvh - 10.5rem); padding:.8rem; }
+      #pack-modal .cc-card-face .cc-card-character { flex-basis:74% !important; height:74% !important; }
+      #pack-modal #pack-next-card.show { margin:.65rem auto 0 !important; }
+    }
   </style>
 </head>
 <body>
