@@ -555,7 +555,7 @@
   <div class="cc-toast" id="cc-toast" role="status"></div>
 
   <script type="module">
-    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
     const supabase=createClient('https://adjiwcjqlzijnqhwgccn.supabase.co','sb_publishable_0z51eAvIZ3o4c--Aqmzkzw_WUAtlsLX',{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'clickcards-auth',storage:window.localStorage}}); let openingUserId=null; const enterUser=async user=>{if(!user)return;if(openingUserId===user.id&&document.querySelector('#collection-screen.show'))return;openingUserId=user.id;try{await openDashboard(user)}catch(error){console.error('ClickCards dashboard error',error);currentUser=user;openingUserId=user.id;$('#cc-user-name').textContent='@'+(user.user_metadata?.username||user.email?.split('@')[0]||'colecionador');showDashboard();oldToast('Você entrou, mas alguns dados demoraram para carregar. Atualize a página para sincronizar sua coleção.')}};
     const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)]; let toastTimer;
     const toast=m=>{const el=$('#cc-toast');el.textContent=m;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),4200)};
