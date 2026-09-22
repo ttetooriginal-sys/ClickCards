@@ -342,6 +342,9 @@
       #collection-screen.cc-dashboard .cc-nav button + button { border-left:1px solid rgba(36,87,230,.24); border-radius:0; }
       #collection-screen.cc-dashboard .cc-nav button + button span { margin-left:.08rem; }
     }
+
+    #login-feedback { display:none; margin:.8rem 0 0; padding:.7rem .85rem; border:1px solid #f2a6a6; border-radius:.7rem; color:#8b1e1e; background:#fff0f0; font-weight:750; }
+    #login-feedback.show { display:block; }
   </style>
 </head>
 <body>
@@ -371,6 +374,7 @@
           <div class="field"><label for="password">Senha</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required /><button class="toggle-password" type="button" id="toggle-password">Mostrar</button></div></div>
           <div class="form-row"><label class="remember"><input type="checkbox" name="remember" /> Lembrar de mim</label><a href="mailto:clickcardd@gmail.com?subject=Esqueci%20minha%20senha">Esqueci minha senha</a></div>
           <button class="button" type="submit">Entrar na coleção</button>
+          <p id="login-feedback" role="alert" aria-live="polite"></p>
         </form>
         <div class="divider">ainda não tem uma conta?</div>
         <button class="text-button" type="button" id="open-signup">Criar minha conta</button>
@@ -426,10 +430,10 @@
 
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
-    const supabase=createClient('https://adjiwcjqlzijnqhwgccn.supabase.co','sb_publishable_0z51eAvIZ3o4c--Aqmzkzw_WUAtlsLX',{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'clickcards-auth'}}); let openingUserId=null; const enterUser=async user=>{if(!user)return;if(openingUserId===user.id&&document.querySelector('#collection-screen.show'))return;openingUserId=user.id;try{await openDashboard(user)}catch(error){console.error('ClickCards dashboard error',error);openingUserId=null;$('.page').classList.remove('login-hidden');$('#collection-screen').classList.remove('show');$('#collection-screen').setAttribute('aria-hidden','true');oldToast('Login feito, mas não foi possível carregar sua coleção. Recarregue a página e tente novamente.')}};
+    const supabase=createClient('https://adjiwcjqlzijnqhwgccn.supabase.co','sb_publishable_0z51eAvIZ3o4c--Aqmzkzw_WUAtlsLX',{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'clickcards-auth'}}); let openingUserId=null; const enterUser=async user=>{if(!user)return;if(openingUserId===user.id&&document.querySelector('#collection-screen.show'))return;openingUserId=user.id;try{await openDashboard(user)}catch(error){console.error('ClickCards dashboard error',error);currentUser=user;openingUserId=user.id;$('#cc-user-name').textContent='@'+(user.user_metadata?.username||user.email?.split('@')[0]||'colecionador');showDashboard();oldToast('Você entrou, mas alguns dados demoraram para carregar. Atualize a página para sincronizar sua coleção.')}};
     const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)]; let toastTimer;
     const toast=m=>{const el=$('#cc-toast');el.textContent=m;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),4200)};
-    const oldToast=m=>{const el=$('#toast');if(el){el.textContent=m;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3600)}};
+    const oldToast=m=>{const el=$('#login-feedback');if(el){el.textContent=m;el.classList.add('show')}else{console.warn(m)}};
     const password=$('#password'); $('#toggle-password').onclick=()=>{const v=password.type==='text';password.type=v?'password':'text';$('#toggle-password').textContent=v?'Mostrar':'Ocultar'};
     $('#open-signup').onclick=()=>{$('#signup-screen').classList.add('show');$('#signup-screen').setAttribute('aria-hidden','false')}; $('#close-signup').onclick=()=>{$('#signup-screen').classList.remove('show');$('#signup-screen').setAttribute('aria-hidden','true')};
     const pendingKey='clickcards_pending_profile'; const authMessage=error=>{const code=error?.code||error?.error_code||'';const message=(error?.message||'').toLowerCase();if(code==='over_email_send_rate_limit'||message.includes('email rate limit exceeded'))return 'O envio de e-mails atingiu o limite temporário. Aguarde e tente novamente.';if(code==='email_not_confirmed')return 'Confirme seu e-mail antes de entrar.';if(code==='invalid_credentials')return 'E-mail ou senha inválidos.';return error?.message||'Não foi possível concluir agora.'};
