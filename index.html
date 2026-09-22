@@ -363,6 +363,24 @@
       #pack-modal #pack-next-card { display:none; flex:0 0 auto; align-self:center; margin:.45rem auto 0; position:relative; z-index:2; }
       #pack-modal #pack-next-card.show { display:inline-flex; }
     }
+
+    /* Full-screen sticker reveal: keep the complete artwork visible while cards slide in. */
+    #pack-modal { padding:0; align-items:stretch; overflow:hidden; }
+    #pack-modal .cc-pack-dialog { width:100vw; max-width:none; height:100dvh; max-height:none; min-height:0; padding:1rem clamp(.75rem,3vw,2rem); border-radius:0; display:flex; flex-direction:column; overflow:hidden; }
+    #pack-modal .cc-pack-dialog h2 { flex:0 0 auto; margin:.25rem 0 .2rem; }
+    #pack-modal .cc-pack-hint { flex:0 0 auto; margin:.2rem 0 .4rem; }
+    #pack-modal .cc-card-reveal.show { display:flex; flex:1 1 auto; min-height:0; height:auto; padding:.4rem; align-items:center; justify-content:center; overflow:visible; }
+    #pack-modal .cc-card-face { width:min(88vw,34rem); height:min(78dvh,52rem); min-height:0; max-height:none; padding:clamp(.7rem,2vw,1.2rem); overflow:hidden; }
+    #pack-modal .cc-card-face .cc-card-character { flex:1 1 auto; width:100%; height:auto; min-height:0; max-height:calc(100% - 5rem); object-fit:contain; object-position:center; }
+    #pack-modal #pack-next-card { display:none; flex:0 0 auto; align-self:center; margin:.45rem auto 0; position:relative; z-index:2; }
+    #pack-modal #pack-next-card.show { display:inline-flex; }
+    @keyframes card-swipe-next { from { opacity:0; transform:translateX(100%) rotate(8deg) scale(.9); } 70% { opacity:1; transform:translateX(-4%) rotate(-1deg) scale(1.01); } to { opacity:1; transform:none; } }
+    @keyframes card-swipe-prev { from { opacity:0; transform:translateX(-100%) rotate(-8deg) scale(.9); } 70% { opacity:1; transform:translateX(4%) rotate(1deg) scale(1.01); } to { opacity:1; transform:none; } }
+    @media (max-width:620px) {
+      #pack-modal .cc-pack-dialog { padding:.65rem .55rem .8rem; }
+      #pack-modal .cc-card-face { width:min(88vw,32rem); height:calc(100dvh - 9rem); max-height:calc(100dvh - 9rem); padding:.8rem; }
+      #pack-modal .cc-card-reveal.show { padding:.2rem 0; }
+    }
   </style>
 </head>
 <body>
