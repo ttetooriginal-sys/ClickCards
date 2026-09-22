@@ -408,6 +408,12 @@
     /* Show the complete sticker in the analysis panel, independent of inventory thumbnail cropping. */
     .cc-analysis-photo { display:grid; place-items:center; min-height:12rem; max-height:72vh; margin:1rem 0; padding:.7rem; border:1px solid var(--line); border-radius:1rem; background:#f7f8ff; overflow:hidden; }
     .cc-analysis-photo img { display:block; width:auto; max-width:100%; height:auto; max-height:68vh; object-fit:contain; object-position:center; border-radius:.5rem; box-shadow:0 10px 24px rgba(25,49,113,.14); }
+
+    /* Keep the fixed dashboard vertically scrollable on touch devices, including iOS Safari. */
+    #collection-screen.cc-dashboard { height:100dvh; overflow-x:hidden; overflow-y:scroll; -webkit-overflow-scrolling:touch; touch-action:pan-y; overscroll-behavior-y:contain; }
+    #collection-screen.cc-dashboard .cc-shell,
+    #collection-screen.cc-dashboard .cc-main,
+    #collection-screen.cc-dashboard .cc-view { touch-action:pan-y; }
   </style>
 </head>
 <body>
