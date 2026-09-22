@@ -459,6 +459,12 @@
     /* The change control lives under the sticker image, inside the card. */
     #pack-modal > .cc-pack-dialog > #pack-next-card { display:none !important; }
     #pack-modal .cc-inline-next { display:inline-flex; align-self:center; flex:0 0 auto; margin:.55rem auto !important; }
+
+    /* Slightly larger reveal card, keeping the inline next button below it. */
+    #pack-modal .cc-card-face { width:min(92vw,36rem); height:min(78dvh,52rem); max-height:min(78dvh,52rem); }
+    @media (max-width:620px) {
+      #pack-modal .cc-card-face { width:min(92vw,36rem); height:calc(100dvh - 12.5rem); max-height:calc(100dvh - 12.5rem); }
+    }
   </style>
 </head>
 <body>
