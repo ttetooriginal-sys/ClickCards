@@ -222,6 +222,20 @@
       #collection-screen.cc-dashboard .cc-hero h1,
       #collection-screen.cc-dashboard .cc-hero p { overflow-wrap: anywhere; word-break: break-word; }
     }
+
+    /* compact mobile side */
+    @media (max-width: 620px) {
+      .brand-side { min-height: 24rem; padding: 1.6rem 1.25rem 1.2rem; }
+      .mini-logo { margin-bottom: 1.25rem; font-size: 1rem; }
+      .brand-art { width: min(70vw, 15rem); margin: -.5rem 0 -.35rem -.35rem; }
+      .brand-side h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
+      .brand-copy { font-size: .92rem; line-height: 1.45; }
+      .orbit { display: none; }
+      #collection-screen.cc-dashboard .cc-sidebar { padding: .25rem; border-radius: .9rem; }
+      #collection-screen.cc-dashboard .cc-nav { gap: .2rem; }
+      #collection-screen.cc-dashboard .cc-nav button { padding: .5rem .55rem; font-size: .72rem; gap: .35rem; border-radius: .65rem; }
+      #collection-screen.cc-dashboard .cc-nav button.active { box-shadow: inset 3px 0 var(--blue); }
+    }
     /* Mobile collection layout: keep every panel inside the viewport. */
     @media (max-width: 620px) {
       html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
