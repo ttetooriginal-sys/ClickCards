@@ -446,6 +446,15 @@
 
     /* Final button placement: normal flow, directly below the revealed card. */
     #pack-modal #pack-next-card.show { position:static !important; display:flex; align-self:center; margin:.8rem auto 0 !important; transform:none !important; }
+
+    /* Structural fix: reveal area wraps only the card, so the button follows it below. */
+    #pack-modal .cc-card-reveal.show { display:flex; flex:0 0 auto !important; width:100%; height:auto !important; min-height:0 !important; max-height:none !important; padding:0 !important; align-items:center; justify-content:center; overflow:visible; }
+    #pack-modal .cc-card-face { flex:0 0 auto; }
+    #pack-modal #pack-next-card.show { display:flex !important; position:static !important; align-self:center !important; margin:.8rem auto 0 !important; transform:none !important; }
+    @media (max-width:620px) {
+      #pack-modal .cc-card-face { height:calc(100dvh - 14rem); max-height:calc(100dvh - 14rem); }
+      #pack-modal #pack-next-card.show { margin:.65rem auto 0 !important; }
+    }
   </style>
 </head>
 <body>
