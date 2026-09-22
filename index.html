@@ -495,7 +495,7 @@
         <div class="form-logo"><span class="logo-mark" aria-hidden="true"></span>clickcards</div>
         <h2>Que bom ter você aqui.</h2>
         <p class="subtitle">Entre para continuar sua coleção.</p>
-        <form id="login-form">
+        <form id="login-form" method="post" action="" autocomplete="on">
           <div class="field"><label for="username">E-mail</label><input id="username" name="username" type="email" autocomplete="email" placeholder="voce@email.com" required /></div>
           <div class="field"><label for="password">Senha</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required /><button class="toggle-password" type="button" id="toggle-password">Mostrar</button></div></div>
           <div class="form-row"><label class="remember"><input type="checkbox" name="remember" /> Lembrar de mim</label><a href="mailto:clickcardd@gmail.com?subject=Esqueci%20minha%20senha">Esqueci minha senha</a></div>
@@ -521,7 +521,7 @@
       <div class="form-logo"><span class="logo-mark" aria-hidden="true"></span>clickcards</div>
       <h2>Crie sua conta</h2>
       <p class="subtitle">Você mesmo cria seu acesso. O suporte só ajuda se precisar.</p>
-      <form id="signup-form">
+      <form id="signup-form" method="post" action="" autocomplete="on">
         <div class="signup-grid">
           <div class="field"><label for="signup-username">Usuário</label><input id="signup-username" autocomplete="username" placeholder="Escolha um nome de usuário" required /></div>
           <div class="field"><label for="signup-email">E-mail</label><input id="signup-email" type="email" autocomplete="email" placeholder="voce@email.com" required /></div>
@@ -556,6 +556,7 @@
 
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    const cleanAuthUrl=()=>{try{const u=new URL(location.href);let changed=false;['username','password','email'].forEach(k=>{if(u.searchParams.has(k)){u.searchParams.delete(k);changed=true}});if(changed)history.replaceState(null,'',u.pathname+(u.search||'')+(u.hash||''))}catch{}};cleanAuthUrl();
     const supabase=createClient('https://adjiwcjqlzijnqhwgccn.supabase.co','sb_publishable_0z51eAvIZ3o4c--Aqmzkzw_WUAtlsLX',{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'clickcards-auth',storage:window.localStorage}}); let openingUserId=null; const enterUser=async user=>{if(!user)return;if(openingUserId===user.id&&document.querySelector('#collection-screen.show'))return;openingUserId=user.id;try{await openDashboard(user)}catch(error){console.error('ClickCards dashboard error',error);currentUser=user;openingUserId=user.id;$('#cc-user-name').textContent='@'+(user.user_metadata?.username||user.email?.split('@')[0]||'colecionador');showDashboard();oldToast('Você entrou, mas alguns dados demoraram para carregar. Atualize a página para sincronizar sua coleção.')}};
     const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)]; let toastTimer;
     const toast=m=>{const el=$('#cc-toast');el.textContent=m;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),4200)};
