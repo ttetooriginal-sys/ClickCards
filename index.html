@@ -318,6 +318,12 @@
       .cc-list-item .cc-badge, .cc-list-item .cc-price { align-self: flex-start; }
       .cc-pack-dialog { width: 100%; max-width: 100%; }
     }
+
+    /* Final mobile nav override: compact content-sized scrolling buttons. */
+    @media (max-width:620px) {
+      #collection-screen.cc-dashboard .cc-nav { display:flex !important; flex-wrap:nowrap !important; justify-content:flex-start !important; gap:0 !important; padding:0 !important; margin:0 !important; overflow-x:auto !important; overflow-y:hidden !important; }
+      #collection-screen.cc-dashboard .cc-nav button { display:inline-flex !important; width:auto !important; min-width:0 !important; max-width:max-content !important; flex:0 0 auto !important; padding:.18rem .24rem !important; margin:0 !important; font-size:.58rem !important; line-height:1 !important; white-space:nowrap !important; }
+    }
   </style>
 </head>
 <body>
