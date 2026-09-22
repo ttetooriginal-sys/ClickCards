@@ -381,6 +381,15 @@
       #pack-modal .cc-card-face { width:min(88vw,32rem); height:calc(100dvh - 9rem); max-height:calc(100dvh - 9rem); padding:.8rem; }
       #pack-modal .cc-card-reveal.show { padding:.2rem 0; }
     }
+
+    /* Keep the navigation control below the sticker, never over its artwork. */
+    #pack-modal .cc-pack-dialog { position:relative; }
+    #pack-modal .cc-card-reveal.show { padding-bottom:4.5rem; }
+    #pack-modal #pack-next-card.show { position:fixed !important; left:50% !important; bottom:calc(env(safe-area-inset-bottom, 0px) + .75rem) !important; margin:0 !important; transform:translateX(-50%) !important; }
+    @media (max-width:620px) {
+      #pack-modal .cc-card-reveal.show { padding-bottom:5rem; }
+      #pack-modal .cc-card-face { height:calc(100dvh - 14rem); max-height:calc(100dvh - 14rem); }
+    }
   </style>
 </head>
 <body>
