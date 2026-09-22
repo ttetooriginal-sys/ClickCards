@@ -251,6 +251,20 @@
       #collection-screen.cc-dashboard .cc-nav button { min-height:1.9rem; padding:.3rem .48rem; font-size:.68rem; line-height:1; gap:.25rem; border-radius:.55rem; }
       #collection-screen.cc-dashboard .cc-nav button.active { box-shadow:inset 2px 0 var(--blue); }
     }
+
+    @media (max-width:620px) {
+      .cc-pack-modal { padding:.45rem; align-items:stretch; }
+      .cc-pack-dialog { width:100%; max-width:none; min-height:calc(100dvh - .9rem); max-height:calc(100dvh - .9rem); padding:.7rem .65rem .85rem; border-radius:1rem; display:flex; flex-direction:column; overflow:auto; }
+      .cc-pack-dialog .cc-kicker { margin-top:.35rem; }
+      .cc-pack-dialog .cc-pack-hint { margin:.35rem 0; }
+      .cc-card-reveal.show { flex:1 1 auto; min-height:0; padding:.25rem 0; }
+      .cc-card-face { width:100%; max-width:none; height:calc(100dvh - 8rem); min-height:0; max-height:none; padding:.9rem; border-width:3px; border-radius:1rem; }
+      .cc-card-face .cc-card-character { flex:1 1 auto; width:100%; height:auto; min-height:0; max-height:none; object-fit:contain; }
+      .cc-card-face h3 { font-size:clamp(1.65rem,8vw,2.7rem); }
+      .cc-pack-next { flex:0 0 auto; margin-top:.45rem; }
+      #collection-screen.cc-dashboard .cc-nav { flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden; touch-action:pan-x; scrollbar-width:none; }
+      #collection-screen.cc-dashboard .cc-nav button { flex:0 0 auto; min-width:max-content; min-height:1.75rem; padding:.27rem .42rem; font-size:.64rem; }
+    }
     /* Mobile collection layout: keep every panel inside the viewport. */
     @media (max-width: 620px) {
       html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
