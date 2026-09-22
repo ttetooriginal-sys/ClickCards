@@ -418,6 +418,9 @@
     /* Give the end of the dashboard a real scrollable touch area on mobile. */
     #collection-screen.cc-dashboard { padding-bottom:8rem; overscroll-behavior-y:auto; }
     #collection-screen.cc-dashboard .cc-shell { padding-bottom:6rem; }
+
+    /* Let the sticker fill the available card area instead of inheriting the old thumbnail size. */
+    #pack-modal .cc-card-face .cc-card-character { display:block; flex:1 1 auto !important; width:100% !important; height:100% !important; min-height:0 !important; max-height:none !important; object-fit:contain !important; object-position:center; }
   </style>
 </head>
 <body>
