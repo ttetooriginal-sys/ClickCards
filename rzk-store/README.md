@@ -1,25 +1,33 @@
-# RzK SysteM — vitrine digital
+# RzK SysteM #TheBest
 
-Implementação estática e responsiva baseada nas informações públicas observáveis da página inicial de `rzksystem.store`. O site de referência bloqueou a inspeção de páginas internas; esta implementação recria as informações públicas observadas e tem identidade visual, ilustrações e código próprios. Não replica backend, checkout ou conteúdo privado do site de referência.
+Vitrine estática responsiva recriada a partir da aparência pública de [rzksystem.store](https://rzksystem.store/), das páginas públicas de categorias, produto, login e termos inspecionadas no navegador e do HTML enviado no chat. Usa uma implementação própria de HTML/CSS/JS, com as artes de marca/categorias/produtos fornecidas no HTML guardadas localmente em `assets/`.
 
 ## Páginas
-- `index.html` — início, categorias e produtos em destaque.
-- `catalogo.html` — catálogo completo, pesquisa, filtros e ordenação.
-- `ofertas.html` — produtos com preço promocional.
-- `sobre.html` — informações sobre a experiência da vitrine.
-- `produto.html?id=ID` — página de detalhes de cada produto do catálogo.
+
+- `index.html` — home com hero, carrossel de categorias e os cinco grupos de produtos.
+- `categories/` — grade das cinco categorias.
+- `category/<slug>/` — coleções Destaques, Jogos Populares, Produtos do Discord, Assinaturas Exclusivas e Produtos Diversos.
+- `product/<id>/` — detalhe estático de cada um dos 27 produtos, usando seus IDs públicos.
+- `login/` e `terms/` — páginas públicas de entrada e termos.
+- `catalogo.html`, `ofertas.html`, `sobre.html` e `produto.html` — aliases simples para compatibilidade com links antigos.
 
 ## Recursos
-- 27 produtos e preços exibidos na página inicial consultada.
-- Carrinho demonstrativo compartilhado entre as páginas, salvo no navegador com `localStorage`.
-- Animações de entrada, rolagem, flutuação, órbita e hover; movimento reduzido é respeitado conforme preferência do dispositivo.
-- Layout responsivo e navegação móvel.
+
+- Busca com sugestões, categorias clicáveis, ordenação por preço e carrossel horizontal.
+- 27 produtos com nomes, emojis, preços, descontos, IDs e imagens locais observados na loja de referência.
+- Carrinho e favoritos demonstrativos persistidos no navegador (`localStorage`).
+- Página de IA com preço, variantes, estoque e descrição capturados no site público; demais páginas de produto usam o mesmo layout e dados de catálogo com texto de descrição genérico.
+- Animações de entrada, órbita/flutuação, brilho no hover e transições; preferência por movimento reduzido respeitada.
+- Layout responsivo para desktop e celular.
+
+## Limites desta cópia estática
+
+GitHub Pages serve apenas arquivos estáticos. O login Google/Discord/e-mail é somente visual; não autentica nem envia e-mails. Carrinho e botões de compra são demonstrativos e não processam pedidos ou pagamentos. Links de Instagram, WhatsApp e Discord apontam para os canais públicos observados.
 
 ## Executar
-Abra `index.html` ou sirva esta pasta com um servidor estático:
+
+Na pasta `rzk-store`, sirva os arquivos localmente:
 
 ```sh
 python3 -m http.server 8080
 ```
-
-Esta é uma demonstração estática: não há checkout, pagamento ou integração com o serviço original. Os preços são os observados na home consultada e podem não refletir valores atuais da loja de referência.

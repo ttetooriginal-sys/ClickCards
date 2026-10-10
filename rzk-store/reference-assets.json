@@ -1,0 +1,206 @@
+[
+  {
+    "type": "brand",
+    "name": "RzK SysteM #TheBest",
+    "url": "https://cdn.ereemby.com/attachments/17805799128126980imagem.webp",
+    "path": "assets/brand.webp"
+  },
+  {
+    "type": "hero",
+    "name": "RzK hero",
+    "url": "https://cdn.ereemby.com/attachments/17745708187546037imagem.jpeg",
+    "path": "assets/hero.jpeg"
+  },
+  {
+    "type": "category",
+    "name": "Destaques",
+    "url": "https://cdn.ereemby.com/attachments/17497704912373220imagem.png",
+    "path": "assets/categories/category-01.png"
+  },
+  {
+    "type": "category",
+    "name": "Jogos Populares",
+    "url": "https://cdn.ereemby.com/attachments/1749819309476526imagem.png",
+    "path": "assets/categories/category-02.png"
+  },
+  {
+    "type": "category",
+    "name": "Produtos do Discord",
+    "url": "https://cdn.ereemby.com/attachments/17498193551633120imagem.png",
+    "path": "assets/categories/category-03.png"
+  },
+  {
+    "type": "category",
+    "name": "Assinaturas Exclusivas",
+    "url": "https://cdn.ereemby.com/attachments/17498193915229567imagem.png",
+    "path": "assets/categories/category-04.png"
+  },
+  {
+    "type": "category",
+    "name": "Produtos Diversos",
+    "url": "https://cdn.ereemby.com/attachments/17714484325011996imagem.png",
+    "path": "assets/categories/category-05.png"
+  },
+  {
+    "type": "product",
+    "name": "🩵 Inteligência Artificial",
+    "url": "https://cdn.ereemby.com/attachments/17714484385569186imagem.png",
+    "path": "assets/products/inteligencia-artificial.png"
+  },
+  {
+    "type": "product",
+    "name": "💚 Xbox Gamepass 1m",
+    "url": "https://cdn.ereemby.com/attachments/17376598425741199imagem.jpeg",
+    "path": "assets/products/xbox-gamepass-1m.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💝 Netflix 4k Mensal",
+    "url": "https://cdn.ereemby.com/attachments/17376598315253364imagem.jpeg",
+    "path": "assets/products/netflix-4k-mensal.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💚 Spotify Premium",
+    "url": "https://cdn.ereemby.com/attachments/17376598215805248imagem.jpeg",
+    "path": "assets/products/spotify-premium.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💙 Steam Jogos",
+    "url": "https://cdn.ereemby.com/attachments/17448493289957108imagem.png",
+    "path": "assets/products/steam-jogos.png"
+  },
+  {
+    "type": "product",
+    "name": "💙 Steam Keys",
+    "url": "https://cdn.ereemby.com/attachments/17376598194639105imagem.jpeg",
+    "path": "assets/products/steam-keys.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💚 Minecraft Java & Bedrock FA",
+    "url": "https://cdn.ereemby.com/attachments/17376598333774305imagem.jpeg",
+    "path": "assets/products/minecraft-java-bedrock-fa.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💖 Discord Impulsos",
+    "url": "https://cdn.ereemby.com/attachments/17376598382563370imagem.jpeg",
+    "path": "assets/products/discord-impulsos.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💜 Discord Nitros",
+    "url": "https://cdn.ereemby.com/attachments/17376598273218690imagem.jpeg",
+    "path": "assets/products/discord-nitros.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💙 Contas Discord",
+    "url": "https://cdn.ereemby.com/attachments/17376598489318823imagem.jpeg",
+    "path": "assets/products/contas-discord.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "🩵 Contas com Nitros",
+    "url": "https://cdn.ereemby.com/attachments/17376598298264584imagem.jpeg",
+    "path": "assets/products/contas-com-nitros.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "📈 Membros Premium - 5k (AUTH NOVA)",
+    "url": "https://cdn.ereemby.com/attachments/17445977435812439imagem.png",
+    "path": "assets/products/membros-premium-5k-auth-nova.png"
+  },
+  {
+    "type": "product",
+    "name": "💙 Paramount+ Plus",
+    "url": "https://cdn.ereemby.com/attachments/17829922504607873imagem.webp",
+    "path": "assets/products/paramount-plus.webp"
+  },
+  {
+    "type": "product",
+    "name": "⭐ (MAIS VENDIDOS) - Combo assinaturas",
+    "url": "https://cdn.ereemby.com/attachments/17421307718918509imagem.jpeg",
+    "path": "assets/products/mais-vendidos-combo-assinaturas.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💚 Premiere+",
+    "url": "https://cdn.ereemby.com/attachments/17434422436443501imagem.png",
+    "path": "assets/products/premiere.png"
+  },
+  {
+    "type": "product",
+    "name": "💜 Hbo Max Premium",
+    "url": "https://cdn.ereemby.com/attachments/17376598399981863imagem.jpeg",
+    "path": "assets/products/hbo-max-premium.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "🩵 Disney Plus",
+    "url": "https://cdn.ereemby.com/attachments/17380139135516543imagem.jpeg",
+    "path": "assets/products/disney-plus.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "🧡 Crunchyroll Premium",
+    "url": "https://cdn.ereemby.com/attachments/17376598467531259imagem.jpeg",
+    "path": "assets/products/crunchyroll-premium.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💙 Canva Pro Mensal - Convite Família",
+    "url": "https://cdn.ereemby.com/attachments/17638165124299290imagem.png",
+    "path": "assets/products/canva-pro-mensal-convite-familia.png"
+  },
+  {
+    "type": "product",
+    "name": "💙 Prime Vídeo",
+    "url": "https://cdn.ereemby.com/attachments/17376598252271127imagem.jpeg",
+    "path": "assets/products/prime-video.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💝 Youtube Premium",
+    "url": "https://cdn.ereemby.com/attachments/17376598147668867imagem.jpeg",
+    "path": "assets/products/youtube-premium.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "🧡 Gl0bo Play Premium",
+    "url": "https://cdn.ereemby.com/attachments/17851595791354186imagem.jpeg",
+    "path": "assets/products/gl0bo-play-premium.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "🏆 CRIE SUA LOJA (FORNECEDORES + ADS + DESIGNS)",
+    "url": "https://cdn.ereemby.com/attachments/17637629774549746imagem.webp",
+    "path": "assets/products/crie-sua-loja-fornecedores-ads-designs.webp"
+  },
+  {
+    "type": "product",
+    "name": "💚 TESTE SUA SORTE HJJ!!!!",
+    "url": "https://cdn.ereemby.com/attachments/17637615890148764imagem.webp",
+    "path": "assets/products/teste-sua-sorte-hjj.webp"
+  },
+  {
+    "type": "product",
+    "name": "✨ Métodos 1 Real",
+    "url": "https://cdn.ereemby.com/attachments/17376598360779328imagem.jpeg",
+    "path": "assets/products/metodos-1-real.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "💙 Palavras Chaves + 500 Questões + Redação Nota 1000",
+    "url": "https://cdn.ereemby.com/attachments/17851635235579650imagem.png",
+    "path": "assets/products/palavras-chaves-500-questoes-redacao-nota-1000.png"
+  },
+  {
+    "type": "product",
+    "name": "🩵 Otimizaçao PC e Celular",
+    "url": "https://cdn.ereemby.com/attachments/17714484358163374imagem.png",
+    "path": "assets/products/otimizacao-pc-e-celular.png"
+  }
+]
