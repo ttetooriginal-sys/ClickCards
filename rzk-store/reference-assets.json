@@ -1,15 +1,15 @@
 [
   {
     "type": "brand",
-    "name": "RzK SysteM #TheBest",
-    "url": "https://cdn.ereemby.com/attachments/17805799128126980imagem.webp",
-    "path": "assets/brand.webp"
+    "name": "Rynex 10k",
+    "url": "https://media.discordapp.net/attachments/1551326285173751898/1559259762724442143/IMG_7794.png?ex=6ace6d51&is=6acd1bd1&hm=00e53c3339612c172722e140d18a532e6948e276fe9667bd9f362277f1e0f36f&=&format=webp&quality=lossless",
+    "path": "assets/rynex/rynex-logo.webp"
   },
   {
     "type": "hero",
-    "name": "RzK hero",
-    "url": "https://cdn.ereemby.com/attachments/17745708187546037imagem.jpeg",
-    "path": "assets/hero.jpeg"
+    "name": "Rynex 10k — Mais Vendidos (arte original gerada para a loja)",
+    "source": "Gerado nesta tarefa",
+    "path": "assets/rynex/banner-mais-vendidos.webp"
   },
   {
     "type": "category",

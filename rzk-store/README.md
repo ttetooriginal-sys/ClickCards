@@ -1,32 +1,24 @@
-# RzK SysteM #TheBest
+# Rynex 10k
 
-Vitrine estática responsiva recriada a partir da aparência pública de [rzksystem.store](https://rzksystem.store/), das páginas públicas de categorias, produto, login e termos inspecionadas no navegador e do HTML enviado no chat. Usa uma implementação própria de HTML/CSS/JS, com as artes de marca/categorias/produtos fornecidas no HTML guardadas localmente em `assets/`.
+Vitrine estática responsiva para a marca **Rynex 10k**. A logo foi fornecida pelo usuário; a home agora usa uma paleta preta/violeta, banners originais sem texto embutido e um carrossel com controles, indicadores e troca automática. As páginas existentes de categorias, produtos, login e termos foram mantidas e atualizadas para a nova identidade.
 
-## Páginas
+## Rotas
 
-- `index.html` — home com hero, carrossel de categorias e os cinco grupos de produtos.
+- `index.html` — carrossel promocional, Mais Vendidos, categorias e catálogo.
 - `categories/` — grade das cinco categorias.
-- `category/<slug>/` — coleções Destaques, Jogos Populares, Produtos do Discord, Assinaturas Exclusivas e Produtos Diversos.
-- `product/<id>/` — detalhe estático de cada um dos 27 produtos, usando seus IDs públicos.
-- `login/` e `terms/` — páginas públicas de entrada e termos.
-- `catalogo.html`, `ofertas.html`, `sobre.html` e `produto.html` — aliases simples para compatibilidade com links antigos.
+- `category/<slug>/` — coleções de produtos.
+- `product/<id>/` — detalhes dos 27 produtos.
+- `login/` e `terms/` — páginas institucionais.
 
 ## Recursos
 
-- Busca com sugestões, categorias clicáveis, ordenação por preço e carrossel horizontal.
-- 27 produtos com nomes, emojis, preços, descontos, IDs e imagens locais observados na loja de referência.
-- Carrinho e favoritos demonstrativos persistidos no navegador (`localStorage`).
-- Página de IA com preço, variantes, estoque e descrição capturados no site público; demais páginas de produto usam o mesmo layout e dados de catálogo com texto de descrição genérico.
-- Animações de entrada, órbita/flutuação, brilho no hover e transições; preferência por movimento reduzido respeitada.
-- Layout responsivo para desktop e celular.
+A home tem busca, carrossel de banners, cards promocionais horizontais, navegação por categorias, carrinho demonstrativo, produtos relacionados, animações e layout responsivo. Os banners roxos do topo são artes originais; as fotos das ofertas/cards de produto ainda são as imagens de catálogo que já estavam no projeto e podem ser substituídas pelas novas fotos quando forem enviadas.
 
-## Limites desta cópia estática
+O projeto continua estático no GitHub Pages: login, atendimento social, checkout e pagamentos não estão conectados. Os botões de atendimento exibem um aviso até que os links oficiais da Rynex 10k sejam configurados.
 
-GitHub Pages serve apenas arquivos estáticos. O login Google/Discord/e-mail é somente visual; não autentica nem envia e-mails. Carrinho e botões de compra são demonstrativos e não processam pedidos ou pagamentos. Links de Instagram, WhatsApp e Discord apontam para os canais públicos observados.
+## Executar localmente
 
-## Executar
-
-Na pasta `rzk-store`, sirva os arquivos localmente:
+Dentro da pasta `rzk-store`, rode:
 
 ```sh
 python3 -m http.server 8080

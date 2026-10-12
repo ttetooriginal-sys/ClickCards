@@ -1,6 +1,6 @@
 window.RZK_REFERENCE = {
-  "brand": "assets/brand.webp",
-  "hero": "assets/hero.jpeg",
+  "brand": "assets/rynex/rynex-logo.webp",
+  "hero": "assets/rynex/banner-mais-vendidos.webp",
   "categories": [
     {
       "title": "Destaques",
