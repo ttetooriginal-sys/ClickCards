@@ -6,12 +6,6 @@
     "path": "assets/rynex/rynex-logo.webp"
   },
   {
-    "type": "hero",
-    "name": "Rynex 10k — Mais Vendidos (arte original gerada para a loja)",
-    "source": "Gerado nesta tarefa",
-    "path": "assets/rynex/banner-mais-vendidos.webp"
-  },
-  {
     "type": "category",
     "name": "Destaques",
     "url": "https://cdn.ereemby.com/attachments/17497704912373220imagem.png",
